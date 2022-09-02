@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.effect.ColorAdjust?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <HBox alignment="CENTER">
+         <children>
+            <Label alignment="CENTER" contentDisplay="CENTER" text="About">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+               <HBox.margin>
+                  <Insets top="25.0" />
+               </HBox.margin>
+            </Label>
+         </children>
+      </HBox>
+      <Separator prefHeight="12.0" prefWidth="600.0" />
+      <HBox alignment="CENTER">
+         <children>
+            <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+               <effect>
+                  <ColorAdjust />
+               </effect>
+               <image>
+                  <Image url="@../../../img/javafx.png" />
+               </image>
+            </ImageView>
+         </children>
+      </HBox>
+      <Separator prefHeight="12.0" prefWidth="600.0" />
+      <HBox alignment="CENTER">
+         <children>
+            <Label alignment="CENTER" contentDisplay="TOP" prefHeight="17.0" prefWidth="605.0" text="Simple JavaFX application with database communication via JDBC." />
+         </children>
+      </HBox>
+      <HBox alignment="CENTER">
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+         <padding>
+            <Insets top="70.0" />
+         </padding>
+         <children>
+            <Label text="Made by: Daniel Silva" />
+         </children>
+      </HBox>
+   </children>
+</VBox>
