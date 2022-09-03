@@ -1,6 +1,7 @@
 package com.projetojavafx.javafxjdbcworkshop;
 
 import com.projetojavafx.javafxjdbcworkshop.gui.util.Alerts;
+import com.projetojavafx.javafxjdbcworkshop.model.services.DepartmentService;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -30,7 +31,7 @@ public class MainViewController implements Initializable {
 
     @FXML
     public void onMenuItemDepartmentAction() {
-        loadView("DepartmentList.fxml");
+        loadView2("DepartmentList.fxml");
     }
 
     @FXML
@@ -62,6 +63,34 @@ public class MainViewController implements Initializable {
             // Incluindo o menu novamente e a tela about
             mainVBox.getChildren().add(mainMenu);
             mainVBox.getChildren().addAll(newVBox.getChildren());
+        } catch (IOException e) {
+            Alerts.showAlert("IO Exception", "Error loading view", e.getMessage(), Alert.AlertType.ERROR);
+        }
+    }
+
+    private void loadView2(String absoluteName) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource(absoluteName));
+            VBox newVBox = loader.load();
+
+            Scene mainScene = Main.getMainScene();
+
+            // Pegando o conteudo que está no VBOX do MainView.fxml
+            VBox mainVBox = (VBox) ((ScrollPane) mainScene.getRoot()).getContent();
+
+            // Separando o Menu Principal
+            Node mainMenu = mainVBox.getChildren().get(0);
+
+            // Limpando a Tela removendo todos os conteudos do VBox
+            mainVBox.getChildren().clear();
+
+            // Incluindo o menu novamente e a tela about
+            mainVBox.getChildren().add(mainMenu);
+            mainVBox.getChildren().addAll(newVBox.getChildren());
+
+            DepartmentListController controller = loader.getController();
+            controller.setDepartmentService(new DepartmentService());
+            controller.updateTableView();
         } catch (IOException e) {
             Alerts.showAlert("IO Exception", "Error loading view", e.getMessage(), Alert.AlertType.ERROR);
         }

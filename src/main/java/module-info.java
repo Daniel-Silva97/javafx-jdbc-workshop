@@ -7,4 +7,6 @@ module com.projetojavafx.javafxjdbcworkshop {
 
     opens com.projetojavafx.javafxjdbcworkshop to javafx.fxml;
     exports com.projetojavafx.javafxjdbcworkshop;
+    exports com.projetojavafx.javafxjdbcworkshop.model.entities;
+    exports com.projetojavafx.javafxjdbcworkshop.model.services;
 }
