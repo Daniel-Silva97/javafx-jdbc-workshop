@@ -58,7 +58,7 @@ public class SellerListController implements Initializable, DataChangeListener {
     public void onBtnNewAction(ActionEvent event) {
         Stage parentStage = Utils.currentStage(event);
         Seller obj = new Seller();
-//        createDialogForm(obj, parentStage, "SellerForm.fxml");
+        createDialogForm(obj, parentStage, "SellerForm.fxml");
     }
 
 
@@ -96,33 +96,33 @@ public class SellerListController implements Initializable, DataChangeListener {
     }
 
     // Função que recebe o "palco" principal e um nome absoluto do arquivo FXML
-//    private void createDialogForm(Seller obj, Stage parentStage, String absoluteName) {
-//        try {
-//            FXMLLoader loader = new FXMLLoader(getClass().getResource(absoluteName));
-//            Pane pane = loader.load();
-//
-//            SellerFormController controller = loader.getController();
-//            controller.setSeller(obj);
-//            controller.setSellerService(new SellerService());
-//            controller.subscribeDataChangeListener(this);
-//            controller.updateFormData();
-//
-//            Stage dialogStage = new Stage();
-//            dialogStage.setTitle("Enter Seller data");
-//            // Setando o painel na cena atual
-//            dialogStage.setScene(new Scene(pane));
-//            // Não permite redimensionar a janela
-//            dialogStage.setResizable(false);
-//            // Informando qual é a tela principal que fica atrás deste modal
-//            dialogStage.initOwner(parentStage);
-//            // Abre a janela como modal e não permite editar a tela que está atrás até fechar a janela
-//            dialogStage.initModality(Modality.WINDOW_MODAL);
-//            // Iniciando a janela
-//            dialogStage.showAndWait();
-//        } catch (IOException e) {
-//            Alerts.showAlert("IO Exception", "Error loading view", e.getMessage(), Alert.AlertType.ERROR);
-//        }
-//    }
+    private void createDialogForm(Seller obj, Stage parentStage, String absoluteName) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource(absoluteName));
+            Pane pane = loader.load();
+
+            SellerFormController controller = loader.getController();
+            controller.setSeller(obj);
+            controller.setSellerService(new SellerService());
+            controller.subscribeDataChangeListener(this);
+            controller.updateFormData();
+
+            Stage dialogStage = new Stage();
+            dialogStage.setTitle("Enter Seller data");
+            // Setando o painel na cena atual
+            dialogStage.setScene(new Scene(pane));
+            // Não permite redimensionar a janela
+            dialogStage.setResizable(false);
+            // Informando qual é a tela principal que fica atrás deste modal
+            dialogStage.initOwner(parentStage);
+            // Abre a janela como modal e não permite editar a tela que está atrás até fechar a janela
+            dialogStage.initModality(Modality.WINDOW_MODAL);
+            // Iniciando a janela
+            dialogStage.showAndWait();
+        } catch (IOException e) {
+            Alerts.showAlert("IO Exception", "Error loading view", e.getMessage(), Alert.AlertType.ERROR);
+        }
+    }
 
     private void initEditButtons() {
         tableColumnEdit.setCellValueFactory(param -> new ReadOnlyObjectWrapper<>(param.getValue()));
@@ -137,9 +137,9 @@ public class SellerListController implements Initializable, DataChangeListener {
                     return;
                 }
                 setGraphic(button);
-//                button.setOnAction(
-//                        event -> createDialogForm(
-//                                obj, Utils.currentStage(event), "SellerForm.fxml"));
+                button.setOnAction(
+                        event -> createDialogForm(
+                                obj, Utils.currentStage(event), "SellerForm.fxml"));
             }
         });
     }
