@@ -2,6 +2,7 @@ package com.projetojavafx.javafxjdbcworkshop.model.dao.impl;
 
 import com.projetojavafx.javafxjdbcworkshop.db.DB;
 import com.projetojavafx.javafxjdbcworkshop.db.DbException;
+import com.projetojavafx.javafxjdbcworkshop.db.DbIntegrityException;
 import com.projetojavafx.javafxjdbcworkshop.model.dao.DepartmentDao;
 import com.projetojavafx.javafxjdbcworkshop.model.entities.Department;
 
@@ -75,7 +76,7 @@ public class DepartmentDaoJDBC implements DepartmentDao {
             statement.setInt(1, id);
             statement.executeUpdate();
         } catch (SQLException e) {
-            throw new DbException(e.getMessage());
+            throw new DbIntegrityException(e.getMessage());
         } finally {
             DB.closeStatement(statement);
         }
