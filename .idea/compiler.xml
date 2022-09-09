@@ -10,7 +10,7 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="javafx-jdbc-workshop" target="18" />
+      <module name="javafx-jdbc-workshop" target="11" />
     </bytecodeTargetLevel>
   </component>
 </project>
