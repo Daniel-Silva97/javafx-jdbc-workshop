@@ -1,6 +1,5 @@
 package com.projetojavafx.javafxjdbcworkshop;
 
-import com.projetojavafx.javafxjdbcworkshop.db.DbException;
 import com.projetojavafx.javafxjdbcworkshop.db.DbIntegrityException;
 import com.projetojavafx.javafxjdbcworkshop.gui.listeners.DataChangeListener;
 import com.projetojavafx.javafxjdbcworkshop.gui.util.Alerts;
